@@ -21,7 +21,7 @@ public class ImageServiceImpl implements ImageService {
   }
 
   @Override
-  public Single<Image> getImage(String code) {
+  public Single<Image> getImage(Long code) {
     return imageDao.getImage(code);
   }
 

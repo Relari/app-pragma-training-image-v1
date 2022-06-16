@@ -9,7 +9,7 @@ public interface ImageService {
 
   Observable<Image> getImages();
 
-  Single<Image> getImage(String code);
+  Single<Image> getImage(Long code);
 
   Completable save(Image image);
 }
