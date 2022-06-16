@@ -9,34 +9,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TestUtil {
 
-  private static final String code  = "code";
-  private static final String description  = "description";
-  private static final String uri  = "uri";
+  private static final Long idPerson  = 1L;
+  private static final String content  = "lkjadlkjadflkjasdlkjasdlkjasdlkj";
   private static final String id  = "70a14d5e-bb62-4b8a-9582-b11d765fba4f";
 
-  public static ImageRequest buildEmployeeRequest() {
+  public static ImageRequest buildImageRequest() {
     return ImageRequest.builder()
-            .code(code)
-            .uri(uri)
-            .description(description)
+            .idPerson(idPerson)
+            .content(content)
             .build();
   }
 
-  public static Image buildEmployee() {
+  public static Image buildImage() {
     return Image.builder()
             .id(id)
-            .code(code)
-            .uri(uri)
-            .description(description)
+            .idPerson(idPerson)
+            .content(content)
             .build();
   }
 
-  public static ImageEntity buildEmployeeEntity() {
+  public static ImageEntity buildImageEntity() {
     return ImageEntity.builder()
             .id(id)
-            .code(code)
-            .uri(uri)
-            .description(description)
+            .idPerson(idPerson)
+            .content(content)
             .build();
   }
 

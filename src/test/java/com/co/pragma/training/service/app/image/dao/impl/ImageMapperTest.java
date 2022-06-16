@@ -1,7 +1,8 @@
 package com.co.pragma.training.service.app.image.dao.impl;
 
-import com.co.pragma.training.service.app.image.util.TestUtil;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.co.pragma.training.service.app.image.util.TestUtil;
 import org.junit.jupiter.api.Test;
 
 class ImageMapperTest {
@@ -9,26 +10,24 @@ class ImageMapperTest {
   @Test
   void testMapEmployee() {
 
-    var imageEntity = TestUtil.buildEmployeeEntity();
+    var imageEntity = TestUtil.buildImageEntity();
     var image = ImageMapper.mapImage(imageEntity);
 
     assertEquals(imageEntity.getId(), image.getId());
-    assertEquals(imageEntity.getCode(), image.getCode());
-    assertEquals(imageEntity.getDescription(), image.getDescription());
-    assertEquals(imageEntity.getUri(), image.getUri());
+    assertEquals(imageEntity.getIdPerson(), image.getIdPerson());
+    assertEquals(imageEntity.getContent(), image.getContent());
 
   }
 
   @Test
   void testMapEmployeeEntity() {
 
-    var image = TestUtil.buildEmployee();
+    var image = TestUtil.buildImage();
     var imageEntity = ImageMapper.mapImageEntity(image);
 
     assertEquals(image.getId(), imageEntity.getId());
-    assertEquals(image.getCode(), imageEntity.getCode());
-    assertEquals(image.getDescription(), imageEntity.getDescription());
-    assertEquals(image.getUri(), imageEntity.getUri());
+    assertEquals(image.getIdPerson(), imageEntity.getIdPerson());
+    assertEquals(image.getContent(), imageEntity.getContent());
 
   }
 

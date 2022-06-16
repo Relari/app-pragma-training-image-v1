@@ -27,7 +27,7 @@ class ImageDaoImplTest {
   @Test
   void whenGetAllEmployeesThenReturnEmployees() {
 
-    var imageEntity = TestUtil.buildEmployeeEntity();
+    var imageEntity = TestUtil.buildImageEntity();
 
     when(imageRepository.findAll())
             .thenReturn(Flux.just(imageEntity));
@@ -39,38 +39,32 @@ class ImageDaoImplTest {
                     image.getId().equals(imageEntity.getId())
             )
             .assertValueAt(0, image ->
-                    image.getCode().equals(imageEntity.getCode())
+                    image.getIdPerson().equals(imageEntity.getIdPerson())
             )
             .assertValueAt(0, image ->
-                    image.getDescription().equals(imageEntity.getDescription())
-            )
-            .assertValueAt(0, image ->
-                    image.getUri().equals(imageEntity.getUri())
+                    image.getContent().equals(imageEntity.getContent())
             );
   }
 
   @Test
   void whenSearchEmployeeThenReturnEmployee() {
 
-    var imageEntity = TestUtil.buildEmployeeEntity();
+    var imageEntity = TestUtil.buildImageEntity();
 
     when(imageRepository.findById(anyString()))
             .thenReturn(Mono.just(imageEntity));
 
-    var testObserver = employeeDao.getImage(imageEntity.getCode()).test();
+    var testObserver = employeeDao.getImage(imageEntity.getIdPerson()).test();
     testObserver.awaitTerminalEvent();
     testObserver.assertComplete().assertNoErrors()
             .assertValue(image ->
                     image.getId().equals(imageEntity.getId())
             )
             .assertValue(image ->
-                    image.getCode().equals(imageEntity.getCode())
+                    image.getIdPerson().equals(imageEntity.getIdPerson())
             )
             .assertValue(image ->
-                    image.getDescription().equals(imageEntity.getDescription())
-            )
-            .assertValue(image ->
-                    image.getUri().equals(imageEntity.getUri())
+                    image.getContent().equals(imageEntity.getContent())
             );
   }
 
@@ -78,9 +72,9 @@ class ImageDaoImplTest {
   void whenSaveEmployeeThenReturnSuccessful() {
 
     when(imageRepository.save(any()))
-            .thenReturn(Mono.just(TestUtil.buildEmployeeEntity()));
+            .thenReturn(Mono.just(TestUtil.buildImageEntity()));
 
-    var testObserver = employeeDao.save(TestUtil.buildEmployee()).test();
+    var testObserver = employeeDao.save(TestUtil.buildImage()).test();
     testObserver.awaitTerminalEvent();
     testObserver.assertComplete().assertNoErrors();
   }

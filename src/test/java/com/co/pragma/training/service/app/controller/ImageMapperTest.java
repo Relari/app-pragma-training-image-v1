@@ -12,25 +12,23 @@ class ImageMapperTest {
   @Test
   void testMapEmployee() {
 
-    var imageRequest = TestUtil.buildEmployeeRequest();
+    var imageRequest = TestUtil.buildImageRequest();
     var image = ImageMapper.mapImage(imageRequest);
 
-    assertEquals(imageRequest.getCode(), image.getCode());
-    assertEquals(imageRequest.getDescription(), image.getDescription());
-    assertEquals(imageRequest.getUri(), image.getUri());
+    assertEquals(imageRequest.getIdPerson(), image.getIdPerson());
+    assertEquals(imageRequest.getContent(), image.getContent());
 
   }
 
   @Test
   void testMapEmployeeResponse() {
 
-    var image = TestUtil.buildEmployee();
+    var image = TestUtil.buildImage();
     var imageResponse = ImageMapper.mapImageResponse(image);
 
     assertEquals(image.getId(), imageResponse.getId());
-    assertEquals(image.getCode(), imageResponse.getCode());
-    assertEquals(image.getDescription(), imageResponse.getDescription());
-    assertEquals(image.getUri(), imageResponse.getUri());
+    assertEquals(image.getIdPerson(), imageResponse.getIdPerson());
+    assertEquals(image.getContent(), imageResponse.getContent());
 
   }
 }

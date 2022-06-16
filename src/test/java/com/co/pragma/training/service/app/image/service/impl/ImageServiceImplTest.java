@@ -1,7 +1,7 @@
 package com.co.pragma.training.service.app.image.service.impl;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyLong;
 import static org.mockito.Mockito.when;
 
 import com.co.pragma.training.service.app.image.dao.ImageDao;
@@ -30,7 +30,7 @@ class ImageServiceImplTest {
   @Test
   void whenGetAllEmployeesThenReturnEmployees() {
 
-    var image = TestUtil.buildEmployee();
+    var image = TestUtil.buildImage();
 
     when(imageDao.getImages())
             .thenReturn(Observable.just(image));
@@ -42,25 +42,22 @@ class ImageServiceImplTest {
                     imageResponse.getId().equals(image.getId())
             )
             .assertValueAt(0, imageResponse ->
-                    imageResponse.getCode().equals(image.getCode())
+                    imageResponse.getIdPerson().equals(image.getIdPerson())
             )
             .assertValueAt(0, imageResponse ->
-                    imageResponse.getDescription().equals(image.getDescription())
-            )
-            .assertValueAt(0, imageResponse ->
-                    imageResponse.getUri().equals(image.getUri())
+                    imageResponse.getContent().equals(image.getContent())
             );
   }
 
   @Test
   void whenSearchEmployeeThenReturnEmployee() {
 
-    var image = TestUtil.buildEmployee();
+    var image = TestUtil.buildImage();
 
-    when(imageDao.getImage(anyString()))
+    when(imageDao.getImage(anyLong()))
             .thenReturn(Single.just(image));
 
-    var testObserver = employeeService.getImage(image.getCode()).test();
+    var testObserver = employeeService.getImage(image.getIdPerson()).test();
     testObserver.awaitTerminalEvent();
 
     testObserver.assertComplete().assertNoErrors()
@@ -68,13 +65,10 @@ class ImageServiceImplTest {
                     imageResponse.getId().equals(image.getId())
             )
             .assertValue(imageResponse ->
-                    imageResponse.getCode().equals(image.getCode())
+                    imageResponse.getIdPerson().equals(image.getIdPerson())
             )
             .assertValue(imageResponse ->
-                    imageResponse.getDescription().equals(image.getDescription())
-            )
-            .assertValue(imageResponse ->
-                    imageResponse.getUri().equals(image.getUri())
+                    imageResponse.getContent().equals(image.getContent())
             );
   }
 
@@ -84,7 +78,7 @@ class ImageServiceImplTest {
     when(imageDao.save(any()))
             .thenReturn(Completable.complete());
 
-    var testObserver = employeeService.save(TestUtil.buildEmployee()).test();
+    var testObserver = employeeService.save(TestUtil.buildImage()).test();
     testObserver.awaitTerminalEvent();
 
     testObserver.assertComplete().assertNoErrors();
