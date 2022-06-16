@@ -14,8 +14,7 @@ import lombok.ToString;
 public class Image {
 
   private String id;
-  private String code;
-  private String description;
-  private String uri;
+  private Long idPerson;
+  private String content;
 
 }

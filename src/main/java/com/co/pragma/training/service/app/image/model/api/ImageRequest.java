@@ -9,8 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class ImageRequest {
 
-  private String code;
-  private String description;
-  private String uri;
+  private Long idPerson;
+  private String content;
 
 }

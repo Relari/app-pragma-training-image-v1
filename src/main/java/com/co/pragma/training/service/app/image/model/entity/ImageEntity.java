@@ -17,8 +17,7 @@ public class ImageEntity {
 
   @Id
   private String id;
-  private String code;
-  private String description;
-  private String uri;
+  private Long idPerson;
+  private String content;
 
 }
