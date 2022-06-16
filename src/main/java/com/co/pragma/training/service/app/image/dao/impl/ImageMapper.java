@@ -11,18 +11,16 @@ public class ImageMapper {
     public static Image mapImage(ImageEntity imageEntity) {
         return Image.builder()
                 .id(imageEntity.getId())
-                .code(imageEntity.getCode())
-                .description(imageEntity.getDescription())
-                .uri(imageEntity.getUri())
+                .idPerson(imageEntity.getIdPerson())
+                .content(imageEntity.getContent())
                 .build();
     }
 
     public static ImageEntity mapImageEntity(Image image) {
         return ImageEntity.builder()
                 .id(image.getId())
-                .code(image.getCode())
-                .description(image.getDescription())
-                .uri(image.getUri())
+                .idPerson(image.getIdPerson())
+                .content(image.getContent())
                 .build();
     }
 }

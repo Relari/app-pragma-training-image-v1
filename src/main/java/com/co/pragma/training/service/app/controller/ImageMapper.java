@@ -14,18 +14,16 @@ public class ImageMapper {
   public static Image mapImage(ImageRequest imageRequest) {
     return Image.builder()
             .id(UUID.randomUUID().toString())
-            .code(imageRequest.getCode())
-            .description(imageRequest.getDescription())
-            .uri(imageRequest.getUri())
+            .idPerson(imageRequest.getIdPerson())
+            .content(imageRequest.getContent())
             .build();
   }
 
   public static ImageResponse mapImageResponse(Image image) {
     return ImageResponse.builder()
             .id(image.getId())
-            .code(image.getCode())
-            .description(image.getDescription())
-            .uri(image.getUri())
+            .idPerson(image.getIdPerson())
+            .content(image.getContent())
             .build();
   }
 
