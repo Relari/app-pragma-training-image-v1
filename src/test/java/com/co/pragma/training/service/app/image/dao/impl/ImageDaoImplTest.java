@@ -1,5 +1,9 @@
 package com.co.pragma.training.service.app.image.dao.impl;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyLong;
+import static org.mockito.Mockito.when;
+
 import com.co.pragma.training.service.app.image.dao.repository.ImageRepository;
 import com.co.pragma.training.service.app.image.util.TestUtil;
 import org.junit.jupiter.api.Test;
@@ -9,11 +13,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.test.StepVerifier;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class ImageDaoImplTest {
@@ -51,7 +50,7 @@ class ImageDaoImplTest {
 
     var imageEntity = TestUtil.buildImageEntity();
 
-    when(imageRepository.findById(anyString()))
+    when(imageRepository.findByIdPerson(anyLong()))
             .thenReturn(Mono.just(imageEntity));
 
     var testObserver = employeeDao.getImage(imageEntity.getIdPerson()).test();
