@@ -14,10 +14,7 @@ public class TestUtil {
   private static final String id  = "70a14d5e-bb62-4b8a-9582-b11d765fba4f";
 
   public static ImageRequest buildImageRequest() {
-    return ImageRequest.builder()
-            .idPerson(idPerson)
-            .content(content)
-            .build();
+    return new ImageRequest(idPerson, content);
   }
 
   public static Image buildImage() {
