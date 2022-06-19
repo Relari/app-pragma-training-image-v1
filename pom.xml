@@ -18,6 +18,10 @@
 		<java.version>11</java.version>
 		<server.resource>image</server.resource>
 		<org.springdoc.version>1.6.9</org.springdoc.version>
+		<sonar.exclusions>
+			**/com/co/pragma/training/service/app/ImageApplication.java,
+			**/com/co/pragma/training/service/app/image/model/**
+		</sonar.exclusions>
 	</properties>
 
 	<dependencyManagement>
