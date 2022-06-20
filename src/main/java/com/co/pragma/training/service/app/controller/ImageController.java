@@ -77,7 +77,7 @@ public class ImageController {
                           )
                   )
           })
-  @GetMapping(path = "/{code}")
+  @GetMapping(path = "/{idPerson}")
   public Single<ImageResponse> getImage(
           @Parameter(
                   description = "Identificaci&oacute;n",
@@ -88,8 +88,8 @@ public class ImageController {
                   example = "1",
                   required = true
           )
-          @PathVariable("code") Long code) {
-    return imageService.getImage(code)
+          @PathVariable("idPerson") Long idPerson) {
+    return imageService.getImage(idPerson)
             .map(ImageMapper::mapImageResponse);
   }
 

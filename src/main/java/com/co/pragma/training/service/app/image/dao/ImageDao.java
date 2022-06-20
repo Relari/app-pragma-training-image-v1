@@ -11,5 +11,5 @@ public interface ImageDao {
 
   Observable<Image> getImages();
 
-  Single<Image> getImage(Long id);
+  Single<Image> getImage(Long idPerson);
 }

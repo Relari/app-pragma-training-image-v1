@@ -37,8 +37,8 @@ public class ImageDaoImpl implements ImageDao {
   }
 
   @Override
-  public Single<Image> getImage(Long id) {
-    return imageRepository.findByIdPerson(id)
+  public Single<Image> getImage(Long idPerson) {
+    return imageRepository.findByIdPerson(idPerson)
             .as(RxJava2Adapter::monoToSingle)
             .subscribeOn(Schedulers.io())
             .map(ImageMapper::mapImage);
