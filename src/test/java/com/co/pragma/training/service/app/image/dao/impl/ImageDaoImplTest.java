@@ -21,17 +21,17 @@ class ImageDaoImplTest {
   private ImageRepository imageRepository;
 
   @InjectMocks
-  private ImageDaoImpl employeeDao;
+  private ImageDaoImpl imageDao;
 
   @Test
-  void whenGetAllEmployeesThenReturnEmployees() {
+  void whenGetAllImagesThenReturnImages() {
 
     var imageEntity = TestUtil.buildImageEntity();
 
     when(imageRepository.findAll())
             .thenReturn(Flux.just(imageEntity));
 
-    var testObserver = employeeDao.getImages().test();
+    var testObserver = imageDao.getImages().test();
     testObserver.awaitTerminalEvent();
     testObserver.assertComplete().assertNoErrors()
             .assertValueAt(0, image ->
@@ -46,14 +46,27 @@ class ImageDaoImplTest {
   }
 
   @Test
-  void whenSearchEmployeeThenReturnEmployee() {
+  void whenGetAllImagesThenReturnError() {
+
+    var imageEntity = TestUtil.buildImageEntity();
+
+    when(imageRepository.findAll())
+            .thenReturn(Flux.error(new Throwable()));
+
+    var testObserver = imageDao.getImages().test();
+    testObserver.awaitTerminalEvent();
+    testObserver.assertNotComplete().assertError(Throwable.class);
+  }
+
+  @Test
+  void whenSearchImageThenReturnImage() {
 
     var imageEntity = TestUtil.buildImageEntity();
 
     when(imageRepository.findByIdPerson(anyLong()))
             .thenReturn(Mono.just(imageEntity));
 
-    var testObserver = employeeDao.getImage(imageEntity.getIdPerson()).test();
+    var testObserver = imageDao.getImage(imageEntity.getIdPerson()).test();
     testObserver.awaitTerminalEvent();
     testObserver.assertComplete().assertNoErrors()
             .assertValue(image ->
@@ -68,15 +81,37 @@ class ImageDaoImplTest {
   }
 
   @Test
-  void whenSaveEmployeeThenReturnSuccessful() {
+  void whenSearchImageThenReturnError() {
+
+    var imageEntity = TestUtil.buildImageEntity();
+
+    when(imageRepository.findByIdPerson(anyLong()))
+            .thenReturn(Mono.error(new Throwable()));
+
+    var testObserver = imageDao.getImage(imageEntity.getIdPerson()).test();
+    testObserver.awaitTerminalEvent();
+    testObserver.assertNotComplete().assertError(Throwable.class);
+  }
+
+  @Test
+  void whenSaveImageThenReturnSuccessful() {
 
     when(imageRepository.save(any()))
             .thenReturn(Mono.just(TestUtil.buildImageEntity()));
 
-    var testObserver = employeeDao.save(TestUtil.buildImage()).test();
+    var testObserver = imageDao.save(TestUtil.buildImage()).test();
     testObserver.awaitTerminalEvent();
     testObserver.assertComplete().assertNoErrors();
   }
 
+  @Test
+  void whenSaveImageThenReturnError() {
 
+    when(imageRepository.save(any()))
+            .thenReturn(Mono.error(new Throwable()));
+
+    var testObserver = imageDao.save(TestUtil.buildImage()).test();
+    testObserver.awaitTerminalEvent();
+    testObserver.assertNotComplete().assertError(Throwable.class);
+  }
 }
