@@ -69,18 +69,18 @@ class ImageControllerTest {
             );
   }
 
-//  @Test
-//  void whenSaveEmployeeThenReturnSuccessful() {
-//
-//    when(imageService.save(any()))
-//            .thenReturn(Completable.complete());
-//
-//    var imageRequest = TestUtil.buildImageRequest();
-//
-//    var testObserver = imageController.saveImage(imageRequest).test();
-//    testObserver.awaitTerminalEvent();
-//
-//    testObserver.assertComplete().assertNoErrors();
-//  }
+  @Test
+  void whenSaveEmployeeThenReturnSuccessful() {
+
+    when(imageService.save(any()))
+            .thenReturn(Completable.complete());
+
+    var imageRequest = TestUtil.buildImageRequest();
+
+    var testObserver = imageController.saveImage(imageRequest).test();
+    testObserver.awaitTerminalEvent();
+
+    testObserver.assertComplete().assertNoErrors();
+  }
 
 }
