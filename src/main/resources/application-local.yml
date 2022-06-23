@@ -1,0 +1,20 @@
+spring:
+  data:
+    mongodb:
+      database: PragmaTraining
+      host: localhost
+#      password: '123456'
+      port: 27017
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+
+server:
+  port: 8082
+  error:
+    include-message: always
+
+logging:
+  level:
+    com.co.pragma.training.service.app: TRACE
