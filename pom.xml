@@ -17,6 +17,15 @@
 	<properties>
 		<java.version>11</java.version>
 		<server.resource>image</server.resource>
+		<org.springdoc.version>1.6.9</org.springdoc.version>
+		<sonar.exclusions>
+			**/com/co/pragma/training/service/app/ImageApplication.*,
+			**/com/co/pragma/training/service/app/domain/**,
+			**/com/co/pragma/training/service/app/infrastructure/api/model/**,
+			**/com/co/pragma/training/service/app/infrastructure/db/model/**,
+			**/com/co/pragma/training/service/app/infrastructure/proxy/config/**,
+			**/com/co/pragma/training/service/app/infrastructure/proxy/model/**
+		</sonar.exclusions>
 	</properties>
 
 	<dependencyManagement>
@@ -64,6 +73,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webflux-ui</artifactId>
+			<version>${org.springdoc.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -102,8 +117,12 @@
 				<version>0.8.5</version>
 				<configuration>
 					<excludes>
-						<exclude>**/com/co/pragma/training/service/app/image/model/**</exclude>
 						<exclude>**/com/co/pragma/training/service/app/ImageApplication.*</exclude>
+						<exclude>**/com/co/pragma/training/service/app/domain/**</exclude>
+						<exclude>**/com/co/pragma/training/service/app/infrastructure/api/model/**</exclude>
+						<exclude>**/com/co/pragma/training/service/app/infrastructure/db/model/**</exclude>
+						<exclude>**/com/co/pragma/training/service/app/infrastructure/proxy/config/**</exclude>
+						<exclude>**/com/co/pragma/training/service/app/infrastructure/proxy/model/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>
