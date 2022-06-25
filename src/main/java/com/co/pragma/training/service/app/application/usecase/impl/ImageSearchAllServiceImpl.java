@@ -1,7 +1,8 @@
-package com.co.pragma.training.service.app.application.search.all;
+package com.co.pragma.training.service.app.application.usecase.impl;
 
+import com.co.pragma.training.service.app.application.usecase.ImageSearchAllService;
 import com.co.pragma.training.service.app.domain.Image;
-import com.co.pragma.training.service.app.infrastructure.db.ImageDao;
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import io.reactivex.Observable;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

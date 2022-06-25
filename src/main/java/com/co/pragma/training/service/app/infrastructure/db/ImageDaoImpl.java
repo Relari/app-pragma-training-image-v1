@@ -1,5 +1,6 @@
 package com.co.pragma.training.service.app.infrastructure.db;
 
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import com.co.pragma.training.service.app.infrastructure.db.mapper.ImageMapper;
 import com.co.pragma.training.service.app.infrastructure.db.repository.ImageRepository;
 import com.co.pragma.training.service.app.domain.Image;

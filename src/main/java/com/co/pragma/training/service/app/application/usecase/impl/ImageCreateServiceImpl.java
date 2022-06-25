@@ -1,7 +1,8 @@
-package com.co.pragma.training.service.app.application.create;
+package com.co.pragma.training.service.app.application.usecase.impl;
 
+import com.co.pragma.training.service.app.application.usecase.ImageCreateService;
 import com.co.pragma.training.service.app.domain.Image;
-import com.co.pragma.training.service.app.infrastructure.db.ImageDao;
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import io.reactivex.Completable;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
