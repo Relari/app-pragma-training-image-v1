@@ -1,6 +1,7 @@
-package com.co.pragma.training.service.app.application.search.all;
+package com.co.pragma.training.service.app.application.dao.all;
 
-import com.co.pragma.training.service.app.infrastructure.db.ImageDao;
+import com.co.pragma.training.service.app.application.usecase.impl.ImageSearchAllServiceImpl;
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import com.co.pragma.training.service.app.util.TestUtil;
 import io.reactivex.Observable;
 import org.junit.jupiter.api.Test;

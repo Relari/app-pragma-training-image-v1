@@ -1,6 +1,7 @@
-package com.co.pragma.training.service.app.application.search.image;
+package com.co.pragma.training.service.app.application.dao.image;
 
-import com.co.pragma.training.service.app.infrastructure.db.ImageDao;
+import com.co.pragma.training.service.app.application.usecase.impl.ImageSearchServiceImpl;
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import com.co.pragma.training.service.app.util.TestUtil;
 import io.reactivex.Single;
 import org.junit.jupiter.api.Test;

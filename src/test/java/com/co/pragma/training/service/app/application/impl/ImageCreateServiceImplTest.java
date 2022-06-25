@@ -1,6 +1,7 @@
-package com.co.pragma.training.service.app.application.create;
+package com.co.pragma.training.service.app.application.impl;
 
-import com.co.pragma.training.service.app.infrastructure.db.ImageDao;
+import com.co.pragma.training.service.app.application.usecase.impl.ImageCreateServiceImpl;
+import com.co.pragma.training.service.app.application.dao.ImageDao;
 import com.co.pragma.training.service.app.util.TestUtil;
 import io.reactivex.Completable;
 import org.junit.jupiter.api.Test;
