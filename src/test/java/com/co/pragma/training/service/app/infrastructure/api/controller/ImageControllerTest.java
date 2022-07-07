@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 import com.co.pragma.training.service.app.application.usecase.ImageCreateService;
 import com.co.pragma.training.service.app.application.usecase.ImageSearchAllService;
 import com.co.pragma.training.service.app.application.usecase.ImageSearchService;
+import com.co.pragma.training.service.app.infrastructure.controller.ImageController;
 import com.co.pragma.training.service.app.util.TestUtil;
 import io.reactivex.Completable;
 import io.reactivex.Observable;

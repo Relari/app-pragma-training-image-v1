@@ -33,4 +33,9 @@ public class SpringConfiguration {
         return new ImageSearchServiceImpl(imageDao);
     }
 
+    @Bean
+    public HeaderApplication dataMemory() {
+        return new HeaderApplication();
+    }
+
 }

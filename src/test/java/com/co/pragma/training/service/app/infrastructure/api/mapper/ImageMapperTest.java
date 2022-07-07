@@ -3,6 +3,7 @@ package com.co.pragma.training.service.app.infrastructure.api.mapper;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
+import com.co.pragma.training.service.app.infrastructure.controller.mapper.ImageMapper;
 import com.co.pragma.training.service.app.util.TestUtil;
 import org.junit.jupiter.api.Test;
 

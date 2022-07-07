@@ -10,6 +10,11 @@ spring:
       max-file-size: 15MB
       max-request-size: 15MB
 
+application:
+  http-client:
+    jwt-token:
+      base-url: http://localhost:8080/auth/jwt/v1/
+
 server:
   port: 8082
   error:

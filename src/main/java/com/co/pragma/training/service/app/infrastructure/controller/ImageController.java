@@ -1,11 +1,11 @@
-package com.co.pragma.training.service.app.infrastructure.api.controller;
+package com.co.pragma.training.service.app.infrastructure.controller;
 
 import com.co.pragma.training.service.app.application.usecase.ImageSearchAllService;
 import com.co.pragma.training.service.app.application.usecase.ImageSearchService;
-import com.co.pragma.training.service.app.infrastructure.api.model.ImageRequest;
-import com.co.pragma.training.service.app.infrastructure.api.model.ImageResponse;
+import com.co.pragma.training.service.app.infrastructure.controller.model.ImageRequest;
+import com.co.pragma.training.service.app.infrastructure.controller.model.ImageResponse;
 import com.co.pragma.training.service.app.application.usecase.ImageCreateService;
-import com.co.pragma.training.service.app.infrastructure.api.mapper.ImageMapper;
+import com.co.pragma.training.service.app.infrastructure.controller.mapper.ImageMapper;
 import io.reactivex.Completable;
 import io.reactivex.Observable;
 import io.reactivex.Single;

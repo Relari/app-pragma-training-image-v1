@@ -1,6 +1,6 @@
 package com.co.pragma.training.service.app.util;
 
-import com.co.pragma.training.service.app.infrastructure.api.model.ImageRequest;
+import com.co.pragma.training.service.app.infrastructure.controller.model.ImageRequest;
 import com.co.pragma.training.service.app.domain.Image;
 import com.co.pragma.training.service.app.infrastructure.db.model.ImageEntity;
 import lombok.AccessLevel;
